@@ -50,7 +50,6 @@ function game() {
         let playerSelection = prompt().toLowerCase();
         let computerSelection = getComputerChoice();
         let outcome = playRound(playerSelection, computerSelection)
-        console.log(outcome)
         if (outcome === 'Player Wins'){
             player_score ++
         }
@@ -60,14 +59,13 @@ function game() {
         else {
             computer_score ++
         }
-        console.log(playerSelection)
-        console.log(computerSelection)
-        console.log(player_score)
-        console.log(computer_score)
+        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. ${outcome}` )
+        console.log(`Player score: ${player_score} Computer score: ${computer_score}`)
+  
 
     }
     if (player_score === 5) {
-        console.log('You win!')
+        console.log('You win!!!')
     }
     else {
         console.log('Computer wins! You lose.')
