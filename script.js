@@ -15,7 +15,6 @@ function getComputerChoice () {
     return computerSelection
 }
 
-
 //plays one round of RPS and returns the outcome player or computer wins
 function playRound (playerSelection, computerSelection) {
 
@@ -37,9 +36,12 @@ function playRound (playerSelection, computerSelection) {
         outcome = 'Computer Wins'
     }
     return outcome
- 
+    
+}
 
-//main game loop runs game up to 5 points
+ 
+//main game loop plays game to 5 points
+
 function game() {
     let player_score = 0
     let computer_score = 0
