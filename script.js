@@ -1,3 +1,4 @@
+//generates a random number between 1 and 3 to select computer choice
 function getComputerChoice () {
     let number = Math.floor(Math.random() * 3) + 1;
     let computerSelection;
@@ -15,6 +16,7 @@ function getComputerChoice () {
 }
 
 
+//plays one round of RPS and returns the outcome player or computer wins
 function playRound (playerSelection, computerSelection) {
 
     let outcome;
@@ -35,14 +37,9 @@ function playRound (playerSelection, computerSelection) {
         outcome = 'Computer Wins'
     }
     return outcome
-    
-}
-
-
-
-//console.log(playRound(playerSelection, computerSelection))
  
 
+//main game loop runs game up to 5 points
 function game() {
     let player_score = 0
     let computer_score = 0
