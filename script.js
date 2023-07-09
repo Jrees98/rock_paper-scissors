@@ -50,9 +50,27 @@ function playRound (playerSelection, computerSelection) {
         computerPointsSelector.textContent = `Computer Score: ${computerPoints}`
     }
     return outcome
+
     
 }
 
+function checkWinner() {
+    if (playerPoints === 5){
+        playerPointsSelector.textContent = 'Player Score: 0'
+        computerPointsSelector.textContent = 'Computer Score: 0'
+        playerPoints = 0
+        computerPoints = 0
+        outcomeOfGame.textContent = 'You WIN!'
+    }
+    if (computerPoints ===5) {
+        playerPointsSelector.textContent = 'Player Score: 0'
+        computerPointsSelector.textContent = 'Computer Score: 0'
+        playerPoints = 0
+        computerPoints = 0
+        outcomeOfGame.textContent = 'You lose :('
+    }
+
+}
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
@@ -60,6 +78,7 @@ rockButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
     const outcome = playRound(playerSelection, computerSelection);
     outcomeOfGame.textContent = `The computer selected ${computerSelection}. ${outcome}!`
+    checkWinner();
 
 });
 
@@ -69,6 +88,7 @@ paperButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
     const outcome = playRound(playerSelection, computerSelection);
     outcomeOfGame.textContent = `The computer selected ${computerSelection}. ${outcome}!`
+    checkWinner();
 
 });
 
@@ -78,6 +98,7 @@ scissorsButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
     const outcome = playRound(playerSelection, computerSelection);
     outcomeOfGame.textContent = `The computer selected ${computerSelection}. ${outcome}!`
+    checkWinner();
 
 });
 
