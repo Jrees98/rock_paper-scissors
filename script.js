@@ -29,13 +29,16 @@ function playRound(playerSelection, computerSelection) {
     return result
 }
 
-function game() {
-    for(let i = 0; i < 5; i++) {
-        let playerChoice = prompt('Pick rock/paper/scissors: ').toLowerCase();
-        let computerChoice = getComputerChoice()
-        let roundResult = playRound(playerChoice, computerChoice)
-        console.log(roundResult)
-    }
+function game() { 
+    let playerChoice = prompt('Pick rock/paper/scissors: ').toLowerCase();
+    let computerChoice = getComputerChoice()
+    let roundResult = playRound(playerChoice, computerChoice)
+    console.log(roundResult)
+    
 }
 
-game();
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    alert("You chose rock")
+}) 
+
