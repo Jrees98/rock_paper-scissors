@@ -29,6 +29,13 @@ function playRound(playerSelection, computerSelection) {
     return result
 }
 
-console.log(playRound('rock', getComputerChoice()))
-console.log(playRound('paper', getComputerChoice()))
-console.log(playRound('scissors', getComputerChoice()))
+function game() {
+    for(let i = 0; i < 5; i++) {
+        let playerChoice = prompt('Pick rock/paper/scissors: ').toLowerCase();
+        let computerChoice = getComputerChoice()
+        let roundResult = playRound(playerChoice, computerChoice)
+        console.log(roundResult)
+    }
+}
+
+game();
