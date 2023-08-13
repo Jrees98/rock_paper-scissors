@@ -37,22 +37,6 @@ function game() {
     
 }
 
-const rockButton = document.querySelector('.rock');
-rockButton.addEventListener('click', () => {
-    console.log('Player Chose Rock')
-    let computerChoice = getComputerChoice();
-    let playerChoice = 'rock'
-    let result = playRound(playerChoice, computerChoice)
-    console.log(result)
-    
-}) 
-
-const paperButton = document.querySelector('.paper');
-paperButton.addEventListener('click', () => {
-    console.log('Player Chose paper')
-}) 
-
-const scissorsButton = document.querySelector('.scissors');
-scissorsButton.addEventListener('click', () => {
-    console.log('Player Chose Scissors')
-}) 
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    alert("You chose rock")
