@@ -16,7 +16,7 @@ function playRound(playerSelection, computerSelection) {
     let result = ''
     let prefab = `You win! You chose ${playerSelection} and the computer chose ${computerSelection}`
     if (playerSelection === computerSelection) {
-        result = `You both selected ${playerSelection}`;
+        result = `Tie! You both selected ${playerSelection}.`;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
         result = prefab
     } else if(playerSelection === 'paper' && computerSelection === 'rock') {
@@ -36,23 +36,30 @@ function game() {
     console.log(roundResult)
     
 }
+const divText = document.querySelector('.results') 
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
-    console.log('Player Chose Rock')
     let computerChoice = getComputerChoice();
     let playerChoice = 'rock'
     let result = playRound(playerChoice, computerChoice)
+    divText.textContent = result
     console.log(result)
     
 }) 
 
 const paperButton = document.querySelector('.paper');
 paperButton.addEventListener('click', () => {
-    console.log('Player Chose paper')
+    let computerChoice = getComputerChoice();
+    let playerChoice = 'paper';
+    let result = playRound(playerChoice, computerChoice);
+    divText.textContent = result
 }) 
 
 const scissorsButton = document.querySelector('.scissors');
 scissorsButton.addEventListener('click', () => {
-    console.log('Player Chose Scissors')
+    let computerChoice = getComputerChoice();
+    let playerChoice = 'scissors';
+    let result = playRound(playerChoice, computerChoice);
+    divText.textContent = result
 }) 
