@@ -3,6 +3,7 @@ let playerScore = 0
 let computerScore = 0
 const computerScoreText = document.querySelector('.computerScore')
 const playerScoreText = document.querySelector('.playerScore')
+const winnerPick = document.querySelector('.winner')
 
 
 function getComputerChoice() {
@@ -38,17 +39,27 @@ function playRound(playerSelection, computerSelection) {
         playerScoreText.textContent = `Player Score: ${playerScore}`
         computerScoreText.textContent = `Computer Score: ${computerScore}`
         console.log(computerScoreText)
-    } else {
+    } else if (result.includes('lose')){
         computerScore++
         playerScoreText.textContent = `Player Score: ${playerScore}`
         computerScoreText.textContent = `Computer Score: ${computerScore}`
+    } else {
+        
     }
     return result
 
 }
 
-function scoreCounter(){
+function checkScore(){
+    if (playerScore === 5) {
+        winnerPick.textContent = 'You win! To play again, select another option!'
+    }
+    if (computerScore === 5) {
+        winnerPick.textContent = 'You lose... To play again, select another option!'
+    }
     
+    return winnerPick
+
 }
 
 function game() { 
@@ -66,6 +77,7 @@ rockButton.addEventListener('click', () => {
     let playerChoice = 'rock'
     let result = playRound(playerChoice, computerChoice)
     divText.textContent = result
+    checkScore()
     console.log(result)
     
 }) 
@@ -76,6 +88,7 @@ paperButton.addEventListener('click', () => {
     let playerChoice = 'paper';
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
+    checkScore()
     console.log(result)
 }) 
 
@@ -85,5 +98,6 @@ scissorsButton.addEventListener('click', () => {
     let playerChoice = 'scissors';
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
+    checkScore()
     console.log(result)
 }) 
