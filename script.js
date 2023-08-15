@@ -1,3 +1,10 @@
+const divText = document.querySelector('.results') 
+let playerScore = 0
+let computerScore = 0
+const computerScoreText = document.querySelector('.computerScore')
+const playerScoreText = document.querySelector('.playerScore')
+
+
 function getComputerChoice() {
     let choice = ''
     let number = Math.floor(Math.random() * 3) + 1;
@@ -26,7 +33,17 @@ function playRound(playerSelection, computerSelection) {
     } else {
         result = `You lose... You chose ${playerSelection} and the computer chose ${computerSelection}`
     }
+    if (result.includes('win')) {
+        playerScore++
+        playerScoreText.textContent = `Player Score: ${playerScore}`
+        computerScoreText.textContent = `Computer Score: ${computerScore}`
+    } else {
+        computerScore++
+        playerScoreText.textContent = `Player Score: ${playerScore}`
+        computerScoreText.textContent = `Computer Score: ${computerScore}`
+    }
     return result
+
 }
 
 function game() { 
@@ -36,7 +53,7 @@ function game() {
     console.log(roundResult)
     
 }
-const divText = document.querySelector('.results') 
+
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
@@ -54,6 +71,7 @@ paperButton.addEventListener('click', () => {
     let playerChoice = 'paper';
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
+    console.log(result)
 }) 
 
 const scissorsButton = document.querySelector('.scissors');
@@ -62,4 +80,5 @@ scissorsButton.addEventListener('click', () => {
     let playerChoice = 'scissors';
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
+    console.log(result)
 }) 
