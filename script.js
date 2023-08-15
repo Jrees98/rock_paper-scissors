@@ -37,6 +37,7 @@ function playRound(playerSelection, computerSelection) {
         playerScore++
         playerScoreText.textContent = `Player Score: ${playerScore}`
         computerScoreText.textContent = `Computer Score: ${computerScore}`
+        console.log(computerScoreText)
     } else {
         computerScore++
         playerScoreText.textContent = `Player Score: ${playerScore}`
@@ -44,6 +45,10 @@ function playRound(playerSelection, computerSelection) {
     }
     return result
 
+}
+
+function scoreCounter(){
+    
 }
 
 function game() { 
