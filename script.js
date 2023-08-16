@@ -44,7 +44,7 @@ function playRound(playerSelection, computerSelection) {
         playerScoreText.textContent = `Player Score: ${playerScore}`
         computerScoreText.textContent = `Computer Score: ${computerScore}`
     } else {
-        
+
     }
     return result
 
@@ -53,32 +53,31 @@ function playRound(playerSelection, computerSelection) {
 function checkScore(){
     if (playerScore === 5) {
         winnerPick.textContent = 'You win! To play again, select another option!'
+        playerScore = 0
+        computerScore = 0
+        playerScoreText.textContent = `Player Score: ${playerScore}`
+        computerScoreText.textContent = `Computer Score: ${computerScore}`
+
     }
     if (computerScore === 5) {
         winnerPick.textContent = 'You lose... To play again, select another option!'
+        playerScore = 0
+        computerScore = 0
+        playerScoreText.textContent = `Player Score: ${playerScore}`
+        computerScoreText.textContent = `Computer Score: ${computerScore}`
     }
-    
-    return winnerPick
 
-}
-
-function game() { 
-    let playerChoice = prompt('Pick rock/paper/scissors: ').toLowerCase();
-    let computerChoice = getComputerChoice()
-    let roundResult = playRound(playerChoice, computerChoice)
-    console.log(roundResult)
-    
 }
 
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
+    winnerPick.textContent = ''
     let computerChoice = getComputerChoice();
     let playerChoice = 'rock'
     let result = playRound(playerChoice, computerChoice)
     divText.textContent = result
     checkScore()
-    console.log(result)
     
 }) 
 
@@ -89,7 +88,6 @@ paperButton.addEventListener('click', () => {
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
     checkScore()
-    console.log(result)
 }) 
 
 const scissorsButton = document.querySelector('.scissors');
@@ -99,5 +97,4 @@ scissorsButton.addEventListener('click', () => {
     let result = playRound(playerChoice, computerChoice);
     divText.textContent = result
     checkScore()
-    console.log(result)
 }) 
