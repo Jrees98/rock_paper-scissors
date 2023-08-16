@@ -98,3 +98,4 @@ scissorsButton.addEventListener('click', () => {
     divText.textContent = result
     checkScore()
 }) 
+

@@ -1,10 +1,10 @@
 body{
     margin: 0;
-    background-color: #EEEEEE;
+    background-color: #393E46;
 }
 
 .header{
-    background-color: #00ADB5;
+    background-color: #222831;
     margin: 0;
     padding: 0;
     display: flex;
@@ -33,11 +33,35 @@ body{
     font-size: 60px;
     margin: 0 10px;
     background-color: #EEEEEE;
-    outline: 2px solid #222831;
+    outline: 3px solid #00ADB5;
     border-radius: 10px;
     transition: background-color 0.2s, color 0.2s;
+    margin-top: 50px;
 }
 
 .bt:hover {
-    background-color: #e1dfdf;
+    background-color: #cccccc;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    outline: 5px solid #00ADB5;
+    height: 300px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.board > * {
+    color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    margin: 0 15px;
 }
