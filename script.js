@@ -4,6 +4,7 @@ let computerScore = 0
 const computerScoreText = document.querySelector('.computerScore')
 const playerScoreText = document.querySelector('.playerScore')
 const winnerPick = document.querySelector('.winner')
+const resetButton = document.querySelector('.resetButton')
 
 
 function getComputerChoice() {
@@ -72,7 +73,6 @@ function checkScore(){
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
-    winnerPick.textContent = ''
     let computerChoice = getComputerChoice();
     let playerChoice = 'rock'
     let result = playRound(playerChoice, computerChoice)
@@ -99,3 +99,9 @@ scissorsButton.addEventListener('click', () => {
     checkScore()
 }) 
 
+resetButton.addEventListener('click', () => {
+    playerScore = 0
+    computerScore = 0
+    playerScoreText.textContent = `Player Score: ${playerScore}`
+    computerScoreText.textContent = `Computer Score: ${computerScore}`
+})
