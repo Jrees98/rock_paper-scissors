@@ -5,7 +5,8 @@ const computerScoreText = document.querySelector('.computerScore')
 const playerScoreText = document.querySelector('.playerScore')
 const winnerPick = document.querySelector('.winner')
 const resetButton = document.querySelector('.resetButton')
-
+const playerChoiceDOM = document.querySelector('.playerChoice')
+const computerChoiceDOM = document.querySelector('.computerChoice')
 
 function getComputerChoice() {
     let choice = ''
@@ -70,13 +71,27 @@ function checkScore(){
 
 }
 
+function converToEmoji() {
+    if (getComputerChoice() === 'rock'){
+        emoji = '✊'
+    } else if(getComputerChoice() === 'paper') {
+        emoji = '✋'
+    } else{
+        emoji = '✌️'
+    }
+    return emoji
+}
+
 
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
     let computerChoice = getComputerChoice();
     let playerChoice = 'rock'
+    let emoji = converToEmoji()
     let result = playRound(playerChoice, computerChoice)
-    divText.textContent = result
+    playerChoiceDOM.textContent = '✊'
+    computerChoiceDOM.textContent = emoji
+
     checkScore()
     
 }) 

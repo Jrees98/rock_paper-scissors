@@ -74,10 +74,21 @@ body{
 }
 
 .results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
     color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    margin: 10px; /* Adjust the margin between elements */
+    margin: 20px; /* Adjust the margin between elements */
+}
+
+.results > div {
+    margin: 0 70px;
+    color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
 }
 
 .winner {
