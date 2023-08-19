@@ -13,6 +13,10 @@ body{
     width: 100%;
 }
 
+#underline {
+    border: 1px solid #00ADB5
+}
+
 .title {
     margin: 0;
     padding: 20px; /* Add some padding for spacing */
@@ -88,7 +92,7 @@ body{
     margin: 0 50px;
     color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .winner {

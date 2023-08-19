@@ -54,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
 
 function checkScore(){
     if (playerScore === 5) {
-        winnerPick.textContent = 'You win! To play again, select another option!'
+        resultText.textContent = 'You win! To play again, select another option!'
         playerScore = 0
         computerScore = 0
         playerScoreText.textContent = `Player Score: ${playerScore}`
@@ -62,7 +62,7 @@ function checkScore(){
 
     }
     if (computerScore === 5) {
-        winnerPick.textContent = 'You lose... To play again, select another option!'
+        resultText.textContent = 'You lose... To play again, select another option!'
         playerScore = 0
         computerScore = 0
         playerScoreText.textContent = `Player Score: ${playerScore}`
@@ -116,7 +116,7 @@ scissorsButton.addEventListener('click', () => {
     let compEmoji = convertToEmoji(computerChoice)
     playerChoiceDOM.textContent = '✌️';
     computerChoiceDOM.textContent = compEmoji
-        resultText.textContent = result
+    resultText.textContent = result
     checkScore()
 }) 
 
@@ -125,5 +125,8 @@ resetButton.addEventListener('click', () => {
     computerScore = 0
     playerScoreText.textContent = `Player Score: ${playerScore}`
     computerScoreText.textContent = `Computer Score: ${computerScore}`
+    playerChoiceDOM.textContent = '?';
+    computerChoiceDOM.textContent = '?';
+    resultText.textContent = 'First to 5 points wins...'
 })
 
