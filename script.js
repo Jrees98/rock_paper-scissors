@@ -7,6 +7,7 @@ const winnerPick = document.querySelector('.winner')
 const resetButton = document.querySelector('.resetButton')
 const playerChoiceDOM = document.querySelector('.playerChoice')
 const computerChoiceDOM = document.querySelector('.computerChoice')
+const resultText = document.querySelector('.result_text')
 
 function getComputerChoice() {
     let choice = ''
@@ -24,7 +25,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     let result = ''
-    let prefab = `You win! You chose ${playerSelection} and the computer chose ${computerSelection}`
+    let prefab = `You win! You chose ${playerSelection} and the computer chose ${computerSelection}.`
     if (playerSelection === computerSelection) {
         result = `Tie! You both selected ${playerSelection}.`;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
@@ -34,13 +35,12 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         result = prefab
     } else {
-        result = `You lose... You chose ${playerSelection} and the computer chose ${computerSelection}`
+        result = `You lose... You chose ${playerSelection} and the computer chose ${computerSelection}.`
     }
     if (result.includes('win')) {
         playerScore++
         playerScoreText.textContent = `Player Score: ${playerScore}`
         computerScoreText.textContent = `Computer Score: ${computerScore}`
-        console.log(computerScoreText)
     } else if (result.includes('lose')){
         computerScore++
         playerScoreText.textContent = `Player Score: ${playerScore}`
@@ -71,10 +71,10 @@ function checkScore(){
 
 }
 
-function converToEmoji() {
-    if (getComputerChoice() === 'rock'){
+function convertToEmoji(computerChoice) {
+    if (computerChoice === 'rock'){
         emoji = '✊'
-    } else if(getComputerChoice() === 'paper') {
+    } else if(computerChoice === 'paper') {
         emoji = '✋'
     } else{
         emoji = '✌️'
@@ -86,22 +86,25 @@ function converToEmoji() {
 const rockButton = document.querySelector('.rock');
 rockButton.addEventListener('click', () => {
     let computerChoice = getComputerChoice();
-    let playerChoice = 'rock'
-    let emoji = converToEmoji()
-    let result = playRound(playerChoice, computerChoice)
-    playerChoiceDOM.textContent = '✊'
-    computerChoiceDOM.textContent = emoji
+    let playerChoice = 'rock';
+    let result = playRound(playerChoice, computerChoice);
+    let compEmoji = convertToEmoji(computerChoice)
+    playerChoiceDOM.textContent = '✊';
+    computerChoiceDOM.textContent = compEmoji
+    resultText.textContent = result
+    checkScore();
+});
 
-    checkScore()
-    
-}) 
 
 const paperButton = document.querySelector('.paper');
 paperButton.addEventListener('click', () => {
     let computerChoice = getComputerChoice();
     let playerChoice = 'paper';
     let result = playRound(playerChoice, computerChoice);
-    divText.textContent = result
+    let compEmoji = convertToEmoji(computerChoice)
+    playerChoiceDOM.textContent = '✋';
+    computerChoiceDOM.textContent = compEmoji
+    resultText.textContent = result
     checkScore()
 }) 
 
@@ -110,7 +113,10 @@ scissorsButton.addEventListener('click', () => {
     let computerChoice = getComputerChoice();
     let playerChoice = 'scissors';
     let result = playRound(playerChoice, computerChoice);
-    divText.textContent = result
+    let compEmoji = convertToEmoji(computerChoice)
+    playerChoiceDOM.textContent = '✌️';
+    computerChoiceDOM.textContent = compEmoji
+        resultText.textContent = result
     checkScore()
 }) 
 
@@ -120,3 +126,4 @@ resetButton.addEventListener('click', () => {
     playerScoreText.textContent = `Player Score: ${playerScore}`
     computerScoreText.textContent = `Computer Score: ${computerScore}`
 })
+

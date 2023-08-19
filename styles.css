@@ -85,7 +85,7 @@ body{
 }
 
 .results > div {
-    margin: 0 70px;
+    margin: 0 50px;
     color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
@@ -114,4 +114,16 @@ body{
     color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+}
+
+.result_text {
+    color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+
 }
